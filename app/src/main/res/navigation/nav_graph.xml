@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/usersFragment">
+    <fragment
+        android:id="@+id/personalFragment"
+        android:name="com.example.xlapplication.ui.PersonalFragment"
+        android:label="fragment_personal"
+        tools:layout="@layout/fragment_personal" >
+        <action
+            android:id="@+id/action_personalFragment_to_employeeFragment"
+            app:destination="@id/employeeFragment" />
+        <argument
+            android:name="info"
+            app:argType="com.example.xlapplication.db.UserDataClass"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+    <fragment
+        android:id="@+id/employeeFragment"
+        android:name="com.example.xlapplication.ui.EmployeeFragment"
+        android:label="EmployeeFragment" >
+        <action
+            android:id="@+id/action_employeeFragment_to_bankFragment"
+            app:destination="@id/bankFragment" />
+        <argument
+            android:name="info"
+            app:argType="com.example.xlapplication.db.UserDataClass"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+    <fragment
+        android:id="@+id/bankFragment"
+        android:name="com.example.xlapplication.ui.BankFragment"
+        android:label="BankFragment" >
+        <action
+            android:id="@+id/action_bankFragment_to_usersFragment"
+            app:destination="@id/usersFragment" />
+        <argument
+            android:name="info"
+            app:argType="com.example.xlapplication.db.UserDataClass"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+    <fragment
+        android:id="@+id/usersFragment"
+        android:name="com.example.xlapplication.ui.UsersFragment"
+        android:label="UsersFragment" >
+        <action
+            android:id="@+id/action_usersFragment_to_personalFragment"
+            app:destination="@id/personalFragment" />
+    </fragment>
+</navigation>
